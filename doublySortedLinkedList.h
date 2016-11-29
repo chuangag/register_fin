@@ -356,7 +356,7 @@ public:
     
     vector<T> traverseAllCourseOfStudent(Student stu){
         vector<T> result;
-        result.resize(pdoublySortedLinkedList.size());
+        result.resize(0);
         typename list<T*>::iterator i;
         for(i=pdoublySortedLinkedList.begin();i!=pdoublySortedLinkedList.end();++i){
             T temp=**i;
@@ -370,7 +370,7 @@ public:
     
     vector<T> traverseAllStudentOfCourse(Course c){
         vector<T> result;
-        result.resize(pdoublySortedLinkedList.size());
+        result.resize(0);
         typename list<T*>::iterator i;
         for(i=pdoublySortedLinkedList.begin();i!=pdoublySortedLinkedList.end();++i){
             T temp=**i;

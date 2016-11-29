@@ -86,14 +86,14 @@ void deleteStudent(Student &s,HashTable<Student> &studentTable,DoublySortedLinke
 
 void addCourseSelection(CourseRecord &cr,HashTable<Course> &courseTable,DoublySortedLinkedList<CourseRecord> &courseSelection,HashTable<CourseRecord*> &pstudentTable,HashTable<CourseRecord*> &pcourseTable){
     courseSelection.insertItem(cr);
-    CourseRecord* pcr = &cr;
+    CourseRecord* pcr = &courseSelection.queryItem(cr);
     pcourseTable.addItembyCCodeHash(pcr);
     pstudentTable.addItembyStuIDHash(pcr);
 }
 
 void addCourseSelectionNotPrint(CourseRecord &cr,HashTable<Course> &courseTable,DoublySortedLinkedList<CourseRecord> &courseSelection,HashTable<CourseRecord*> &pstudentTable,HashTable<CourseRecord*> &pcourseTable){
     courseSelection.insertItemNotPrint(cr);
-    CourseRecord* pcr = &cr;
+    CourseRecord* pcr = &courseSelection.queryItem(cr);
     pcourseTable.addItembyCCodeHash(pcr);
     pstudentTable.addItembyStuIDHash(pcr);
 }
@@ -748,7 +748,6 @@ void course_report_menu(HashTable<Student> &studentTable,HashTable<Course> &cour
             if (scInfo.is_open())
             {
                 scInfo<<"<html><head><head><title>Student Records for Course "<<courseTable.getItem(c).getCourseCode()<<"</title></head><body bgColor=#ffffcc><h1><font color=#6600ff>HKUST Course Registration System</font></h1><h2>Student Records for Course: "<<courseTable.getItem(c).getCourseName()<<" ("<<courseTable.getItem(c).getCourseCode()<<")</h2><p><table cellSpacing=1 cellPadding=1 border=1>";
-                cout<<"size:"<<crList.size()<<endl;
                 if(crList.size()==0)
                     scInfo<<"No student registered";
                 else{
